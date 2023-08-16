@@ -1,3 +1,4 @@
+<app-form (carsUpdated)="carsDataUpdated($event)"></app-form>
 <h3>List Component</h3>
 <div *ngIf="carsList.length > 0; then carsListBlock; else noDataAvailable"></div>
 <ng-template #carsListBlock>

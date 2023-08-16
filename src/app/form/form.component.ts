@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -8,11 +8,15 @@ import { Component } from '@angular/core';
 export class FormComponent {
     cars:string[] = [];
     carName = "";
+   
+    @Output() carsUpdated:EventEmitter<string[]> = new EventEmitter;
 
     carsAdded()
     {
       this.cars.push(this.carName);
       this.carName = "";
       console.log(this.cars);
+
+     this.carsUpdated.emit(this.cars);
     }
 }
